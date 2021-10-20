@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    
+    <canvas width="512" height="512" id="canvase"></canvas>
+    <script>
+      var c=document.getElementById("canvase");
+      var ctx=c.getContext("2d");
+
+      ctx.canvas.width = 370
+      ctx.canvas.height = 526
+      var imageObj1 = new Image();
+      var imageObj2 = new Image();
+      url = "../../static/{{img}}";
+      imageObj1.src = url
+      imageObj1.onload = function() {
+        ctx.drawImage(imageObj1, 0, 0, 370, 526);
+        framer = "../../static/{{frame}}"
+        imageObj2.src = framer;
+        imageObj2.onload = function() {
+            ctx.drawImage(imageObj2, 0, 0, 370, 526);
+            //ctx.font = "40pt Calibri";
+            //ctx.fillText("My TEXT!", 20, 20);
+            var img = c.toDataURL("image/png")
+            
+            window.open(img);
+        }
+      };
+    </script>
+  </body>
+</html>

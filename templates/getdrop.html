@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{{img}}</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    
+    <canvas width="512" height="512" id="canvase"></canvas>
+    <script>
+      var c=document.getElementById("canvase");
+var ctx=c.getContext("2d");
+
+ctx.canvas.width = 800
+ctx.canvas.height = 526
+var imageObj1 = new Image();
+var imageObj2 = new Image();
+var url = "../../static/{{img}}";
+
+imageObj1.src = url
+console.log(url) 
+imageObj1.onload = function() {
+  ctx.drawImage(imageObj1, 0, 0, 370, 526);
+  imageObj2.src = "../../static/{{frame}}";
+  imageObj2.onload = function() {
+      ctx.drawImage(imageObj2, 0, 0, 370, 526);
+      var imageObj3 = new Image();
+      var imageObj4 = new Image();
+      var urlx = "../../static/{{img3}}";
+
+      imageObj3.src = urlx
+      console.log(url) 
+      imageObj3.onload = function() {
+        ctx.drawImage(imageObj3, 400, 0, 370, 526);
+        imageObj4.src = "../../static/{{frame3}}";
+        imageObj4.onload = function() {
+          ctx.drawImage(imageObj4, 400, 0, 370, 526);
+          var imageObj5 = new Image();
+          var imageObj6 = new Image();
+          var urly = "../../static/{{img5}}";
+
+          imageObj5.src = urly
+          console.log(url) 
+          imageObj5.onload = function() {
+            ctx.drawImage(imageObj5, 800, 0, 370, 526);
+            imageObj6.src = "../../static/{{frame5}}";
+            imageObj6.onload = function() {
+                ctx.drawImage(imageObj6, 800, 0, 370, 526);
+  var imgx = c.toDataURL("image/png");
+        
+  document.write(imgx);
+  };
+};
+
+</script>
+
+  </body>
+</html>
